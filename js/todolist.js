@@ -70,22 +70,20 @@ function loadTodo(){
 function init(){
     todolist.style.height = '200px';
     todolist.style.overflow = 'auto';
-
+    todoform.addEventListener('submit', (event) => {
+        event.preventDefault();
+        writeTodo(todoinput.value);
+    })
+    todoinput.addEventListener('focus', (event) => {
+        todoinput.style.backgroundColor = '#dbebed';
+    })
+    todoinput.addEventListener('blur', (event) => {
+        todoinput.style.backgroundColor = 'transparent';
+    })
+    
     const currentUser = localStorage.getItem(ls_users);
     if(currentUser !== null){
         loadTodo();
-        todolists.style.textAlign = 'center';
-
-        todoform.addEventListener('submit', (event) => {
-            event.preventDefault();
-            writeTodo(todoinput.value);
-        })
-        todoinput.addEventListener('focus', (event) => {
-            todoinput.style.backgroundColor = '#dbebed';
-        })
-        todoinput.addEventListener('blur', (event) => {
-            todoinput.style.backgroundColor = 'transparent';
-        })
     }
     else{
         todoform.style.display = 'none';

@@ -17,6 +17,7 @@ function setUserName(name){
     todoForms.style.textAlign = 'center';
     todoinputs.style.display = 'inline-block';
     todoinputs.style.textAlign = 'center';
+    todolists.style.textAlign = 'center';
 
     todoinputs.style.fontSize = `${window.screen.height/30}px`;
     todoinputs.style.border = 'solid 1px #dbebed';
@@ -50,14 +51,12 @@ function askForname(){
     
     form_data.addEventListener('submit', function(event){
         event.preventDefault();
-        console.log("입력 : "+input_data.value);
         setUserName(input_data.value);
     })
 }
 
 function getUser(){
     const currentUser = localStorage.getItem(ls_user);
-    console.log('currentUser : '+currentUser);
     if(currentUser === null){
         askForname();
     }

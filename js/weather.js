@@ -6,11 +6,9 @@ const weathers_temp = document.querySelector('.weather-temp');
 const weathers_bottom = document.querySelector('.weather-bottom');
 
 function succesGeo(position){
-    console.log(position);
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     const coordObj = {latitude, longitude};
-    console.log(coordObj);
     localStorage.setItem(locations, JSON.stringify(coordObj));
     getWeather();
 }
