@@ -1,7 +1,6 @@
 const todoform = document.querySelector('.todoForm');
 const todoinput = todoform.querySelector('input');
 const todolist = document.querySelector('.todolist');
-const todoUl = document.querySelector('.todoUl');
 const ls_users = 'currentUser';
 const ls_todolist = "todos";
 let todoArray = [];
@@ -74,20 +73,9 @@ function init(){
 
     const currentUser = localStorage.getItem(ls_users);
     if(currentUser !== null){
-        todoform.style.textAlign = 'center';
-
-        todoinput.style.textAlign = 'center';
-        todoinput.style.fontSize = `${window.screen.height/30}px`;
-        todoinput.style.border = 'solid 1px #dbebed';
-        todoinput.style.borderRadius = '40px 40px 40px 40px';
-        todoinput.style.backgroundColor = 'transparent';
-        todoinput.style.outline = 'none';
-        todoinput.style.fontFamily = `Gamja Flower`;
-
-        todolist.style.textAlign = 'center';
-        todolist.style.listStyle = 'none';
-
         loadTodo();
+        todolists.style.textAlign = 'center';
+
         todoform.addEventListener('submit', (event) => {
             event.preventDefault();
             writeTodo(todoinput.value);
