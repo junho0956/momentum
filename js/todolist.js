@@ -1,7 +1,7 @@
 const todoform = document.querySelector('.todoForm');
 const todoinput = todoform.querySelector('input');
 const todolist = document.querySelector('.todolist');
-
+const todoUl = document.querySelector('.todoUl');
 const ls_users = 'currentUser';
 const ls_todolist = "todos";
 let todoArray = [];
@@ -69,7 +69,9 @@ function loadTodo(){
 }
 
 function init(){
+    todolist.style.height = '200px';
     todolist.style.overflow = 'auto';
+
     const currentUser = localStorage.getItem(ls_users);
     if(currentUser !== null){
         todoform.style.textAlign = 'center';
