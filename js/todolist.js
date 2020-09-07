@@ -14,7 +14,7 @@ function deleteTodo(event){
     const btn = event.target;
     const btnli = btn.parentNode;
     todolist.removeChild(btnli);
-    const newTodoList = todoArray.filter(res => {
+    let newTodoList = todoArray.filter(res => {
         return res.id !== parseInt(btnli.id);
     })
     let cnt = 1;
@@ -22,6 +22,13 @@ function deleteTodo(event){
         res.id = cnt++;
     })
     todoArray = newTodoList;
+    cnt = 1;
+    // change li id
+    const ullist = document.querySelector('.todolist');
+    let ulChild = ullist.childNodes;
+    ulChild.forEach(res => {
+        res.id = cnt++;
+    })
     saveTodoLS();
 }
 
@@ -39,7 +46,7 @@ function writeTodo(todo){
     li.style.fontFamily = `Gamja Flower`;
     li.appendChild(delbtn);
     li.style.fontSize = `${window.screen.height/35}px`;
-    li.style.color = 'white';
+    li.style.color = '#dbebed';
     todolist.appendChild(li);
 
     const todoObj = {
@@ -62,13 +69,14 @@ function loadTodo(){
 }
 
 function init(){
+    todolist.style.overflow = 'auto';
     const currentUser = localStorage.getItem(ls_users);
     if(currentUser !== null){
         todoform.style.textAlign = 'center';
 
         todoinput.style.textAlign = 'center';
         todoinput.style.fontSize = `${window.screen.height/30}px`;
-        todoinput.style.border = 'solid 1px';
+        todoinput.style.border = 'solid 1px #dbebed';
         todoinput.style.borderRadius = '40px 40px 40px 40px';
         todoinput.style.backgroundColor = 'transparent';
         todoinput.style.outline = 'none';
@@ -81,6 +89,12 @@ function init(){
         todoform.addEventListener('submit', (event) => {
             event.preventDefault();
             writeTodo(todoinput.value);
+        })
+        todoinput.addEventListener('focus', (event) => {
+            todoinput.style.backgroundColor = '#dbebed';
+        })
+        todoinput.addEventListener('blur', (event) => {
+            todoinput.style.backgroundColor = 'transparent';
         })
     }
     else{

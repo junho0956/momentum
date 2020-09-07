@@ -37,7 +37,7 @@ function getUser(){
 }
 
 function init(){
-    user_title.style.color = 'white';
+    user_title.style.color = '#dbebed';
     user_title.style.fontSize = `${(window.screen.height)/20}px`;
     user_title.style.textAlign = 'center';
     user_title.style.marginTop = '0';
@@ -45,7 +45,7 @@ function init(){
 
     form_data.style.textAlign = 'center';
 
-    input_data.style.color = 'white';
+    input_data.style.color = '#dbebed';
     input_data.style.textAlign = 'center';
     input_data.style.fontSize = `${(window.screen.height)/30}px`;
     input_data.style.border = 'solid 1px';

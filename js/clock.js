@@ -13,7 +13,7 @@ function setTime(){
         seconds < 10 ? `0${seconds}` : seconds}`;
     
     nowTime.style.marginBottom = '0';
-    nowTime.style.color = 'white';
+    nowTime.style.color = '#dbebed';
     nowTime.style.fontSize = `${(window.screen.height)/8}px`;
     nowTime.style.textAlign = 'center';
 }
